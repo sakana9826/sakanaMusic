@@ -23,13 +23,13 @@ function toSettings(this: any) {
       <RouterLink to="/user" :class="{ active: $route.name === 'user' }">user</RouterLink>
     </div>
   </nav>
-  <div class="item" @click="toSettings">
-    设置
-  </div>
-  <hr />
-  <div class="item" @click="toGitHub">
-    github
-  </div>
+<!--  <div class="item" @click="toSettings">-->
+<!--    设置-->
+<!--  </div>-->
+<!--  <hr />-->
+<!--  <div class="item" @click="toGitHub">-->
+<!--    github-->
+<!--  </div>-->
   <RouterView />
 </template>
 
