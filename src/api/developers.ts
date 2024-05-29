@@ -9,7 +9,6 @@ export async function init(){
   } else {
     const accessToken = await getAccessToken(clientId, code)
     const profile = await fetchProfile(accessToken)
-    console.log(profile) // Profile data logs to console
     populateUI(profile)
   }
 }

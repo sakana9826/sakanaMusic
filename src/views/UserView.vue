@@ -61,7 +61,7 @@ onMounted(() => {
   </template>
 
   <template id="oauth-template">
-    <h2>oAuth info</h2>
+    <h2>Auth info</h2>
     <table>
       <tr>
         <td>Access token</td>

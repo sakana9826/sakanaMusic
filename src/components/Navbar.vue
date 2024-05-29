@@ -30,7 +30,9 @@ function toSettings(this: any) {
 <!--  <div class="item" @click="toGitHub">-->
 <!--    github-->
 <!--  </div>-->
-  <RouterView />
+  <div class="content">
+    <RouterView />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -218,5 +220,10 @@ nav.has-custom-titlebar {
     display: none;
     -webkit-app-region: no-drag;
   }
+}
+.content {
+  flex: 1;
+  margin-top: 30px; /* Ensure content starts below the navbar */
+  padding: 20px; /* Optional: add padding to the main content */
 }
 </style>
