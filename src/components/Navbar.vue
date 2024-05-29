@@ -30,7 +30,7 @@ function toSettings(this: any) {
 <!--  <div class="item" @click="toGitHub">-->
 <!--    github-->
 <!--  </div>-->
-  <div class="content">
+  <div class="flex-1 mt-24 p-6">
     <RouterView />
   </div>
 </template>
@@ -54,44 +54,6 @@ nav {
   background-color: var(--color-navbar-bg);
   z-index: 100;
   -webkit-app-region: drag;
-}
-
-@media (max-width: 1336px) {
-  nav {
-    padding: 0 max(5vw, 90px);
-  }
-}
-
-@supports (-moz-appearance: none) {
-  nav {
-    background-color: var(--color-body-bg);
-  }
-}
-
-nav.has-custom-titlebar {
-  padding-top: 20px;
-  -webkit-app-region: no-drag;
-}
-
-.navigation-buttons {
-  flex: 1;
-  display: flex;
-  align-items: center;
-
-  .svg-icon {
-    height: 24px;
-    width: 24px;
-  }
-
-  button {
-    -webkit-app-region: no-drag;
-  }
-}
-
-@media (max-width: 970px) {
-  .navigation-buttons {
-    flex: unset;
-  }
 }
 
 .navigation-links {
@@ -130,100 +92,22 @@ nav.has-custom-titlebar {
     color: var(--color-primary);
   }
 }
-
-.search {
-  .svg-icon {
-    height: 18px;
-    width: 18px;
+@media (max-width: 1336px) {
+  nav {
+    padding: 0 max(5vw, 90px);
   }
 }
 
-.search-box {
-  display: flex;
-  justify-content: flex-end;
-  -webkit-app-region: no-drag;
-
-  .container {
-    display: flex;
-    align-items: center;
-    height: 32px;
-    background: var(--color-secondary-bg-for-transparent);
-    border-radius: 8px;
-    width: 200px;
-  }
-
-  .svg-icon {
-    height: 15px;
-    width: 15px;
-    color: var(--color-text);
-    opacity: 0.28;
-    margin: {
-      left: 8px;
-      right: 4px;
-    }
-  }
-
-  input {
-    font-size: 16px;
-    border: none;
-    background: transparent;
-    width: 96%;
-    font-weight: 600;
-    margin-top: -1px;
-    color: var(--color-text);
-  }
-
-  .active {
-    background: var(--color-primary-bg-for-transparent);
-
-    input,
-    .svg-icon {
-      opacity: 1;
-      color: var(--color-primary);
-    }
+@supports (-moz-appearance: none) {
+  nav {
+    background-color: var(--color-body-bg);
   }
 }
 
-[data-theme='dark'] {
-  .search-box {
-    .active {
-      input,
-      .svg-icon {
-        color: var(--color-text);
-      }
-    }
+
+@media (max-width: 970px) {
+  .navigation-buttons {
+    flex: unset;
   }
-}
-
-.right-part {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  .avatar {
-    user-select: none;
-    height: 30px;
-    margin-left: 12px;
-    vertical-align: -7px;
-    border-radius: 50%;
-    cursor: pointer;
-    -webkit-app-region: no-drag;
-    -webkit-user-drag: none;
-
-    &:hover {
-      filter: brightness(80%);
-    }
-  }
-
-  .search-button {
-    display: none;
-    -webkit-app-region: no-drag;
-  }
-}
-.content {
-  flex: 1;
-  margin-top: 60px; /* Ensure content starts below the navbar */
-  padding: 20px; /* Optional: add padding to the main content */
 }
 </style>

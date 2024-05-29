@@ -20,8 +20,7 @@
     "qs": "^6.12.1",
     "svg-sprite-loader": "^6.0.11",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2",
-    "vuex": "^4.1.0"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.3",
