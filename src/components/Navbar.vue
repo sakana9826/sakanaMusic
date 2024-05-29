@@ -223,7 +223,7 @@ nav.has-custom-titlebar {
 }
 .content {
   flex: 1;
-  margin-top: 30px; /* Ensure content starts below the navbar */
+  margin-top: 60px; /* Ensure content starts below the navbar */
   padding: 20px; /* Optional: add padding to the main content */
 }
 </style>
