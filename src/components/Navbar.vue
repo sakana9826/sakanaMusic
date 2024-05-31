@@ -1,5 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
+
+const route = useRoute()
+const showNavbar = ref(true)
+
+watch(() => route.path,
+  newPath => {
+    showNavbar.value = shouldShowNavbar(newPath)
+  },
+  { immediate: true }
+)
+
+function shouldShowNavbar(path: string) {
+  const notShowNavBar = ['/login']
+  return !notShowNavBar.includes(path)
+}
 
 function go(this: any, where: string) {
   if (where === 'back') this.$router.go(-1)
@@ -16,22 +32,24 @@ function toSettings(this: any) {
 </script>
 
 <template>
-  <nav>
-    <div class="navigation-links">
-      <RouterLink to="/" :class="{ active: $route.name === 'home' }">Home</RouterLink>
-      <RouterLink to="/developers" :class="{ active: $route.name === 'developers' }">developer</RouterLink>
-      <RouterLink to="/user" :class="{ active: $route.name === 'user' }">user</RouterLink>
+  <div v-show="showNavbar">
+<!--  <div v-show="true">-->
+    <nav>
+      <div class="navigation-links">
+        <RouterLink to="/" :class="{ active: $route.name === 'home' }">Home</RouterLink>
+        <RouterLink to="/developers" :class="{ active: $route.name === 'developers' }">developer</RouterLink>
+        <RouterLink to="/user" :class="{ active: $route.name === 'user' }">user</RouterLink>
+      </div>
+    </nav>
+    <!--  <div class="item" @click="toSettings">-->
+    <!--    设置-->
+    <!--  </div>-->
+    <!--  <hr />-->
+    <!--  <div class="item" @click="toGitHub">-->
+    <!--    github-->
+    <!--  </div>-->
+    <div class="flex-1 mt-24 p-6">
     </div>
-  </nav>
-<!--  <div class="item" @click="toSettings">-->
-<!--    设置-->
-<!--  </div>-->
-<!--  <hr />-->
-<!--  <div class="item" @click="toGitHub">-->
-<!--    github-->
-<!--  </div>-->
-  <div class="flex-1 mt-24 p-6">
-    <RouterView />
   </div>
 </template>
 
