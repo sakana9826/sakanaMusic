@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { ref, watch } from 'vue'
+import ButtonIcon from '@/components/ButtonIcon.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
 
 const route = useRoute()
+const router = useRouter()
 const showNavbar = ref(true)
 
 watch(() => route.path,
@@ -18,8 +21,8 @@ function shouldShowNavbar(path: string) {
 }
 
 function go(this: any, where: string) {
-  if (where === 'back') this.$router.go(-1)
-  else this.$router.go(1)
+  if (where === 'back') router.go(-1)
+  else router.go(1)
 }
 
 function toGitHub() {
@@ -33,8 +36,15 @@ function toSettings(this: any) {
 
 <template>
   <div v-show="showNavbar">
-<!--  <div v-show="true">-->
     <nav>
+      <div class="navigation-buttons">
+        <button-icon @click="go('back')">
+          <svg-icon name="arrow-left" />
+        </button-icon>
+        <button-icon @click="go('forward')">
+          <svg-icon name="arrow-right" />
+        </button-icon>
+      </div>
       <div class="navigation-links">
         <RouterLink to="/" :class="{ active: $route.name === 'home' }">Home</RouterLink>
         <RouterLink to="/developers" :class="{ active: $route.name === 'developers' }">developer</RouterLink>
@@ -110,6 +120,7 @@ nav {
     color: var(--color-primary);
   }
 }
+
 @media (max-width: 1336px) {
   nav {
     padding: 0 max(5vw, 90px);
@@ -122,10 +133,22 @@ nav {
   }
 }
 
-
 @media (max-width: 970px) {
   .navigation-buttons {
     flex: unset;
+  }
+}
+
+.navigation-buttons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  .svg-icon {
+    height: 24px;
+    width: 24px;
+  }
+  button {
+    -webkit-app-region: no-drag;
   }
 }
 </style>

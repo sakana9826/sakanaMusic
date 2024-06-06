@@ -1,32 +1,50 @@
-<!--<template>-->
-<!--  <svg :class="svgClass" aria-hidden="true">-->
-<!--    <use :xlink:href="iconName" />-->
-<!--  </svg>-->
-<!--</template>-->
+<template>
+  <svg :class="svgClass" aria-hidden="true">
+    <use :xlink:href="symbolId" :fill="color" />
+  </svg>
+</template>
 
-<!--<script setup lang="ts">-->
-<!--import { computed } from 'vue'-->
+<script lang="ts">
+import { defineComponent, computed } from 'vue'
 
-<!--const props = withDefaults(defineProps<{-->
-<!--  iconClass: string;-->
-<!--  className?: string;-->
-<!--}>(), { className: '' })-->
+export default defineComponent({
+  name: 'SvgIcon',
+  props: {
+    prefix: {
+      type: String,
+      default: 'icon',
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    color: {
+      type: String,
+      default: '#333',
+    },
+    className: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {
+    svgClass() {
+      if (this.className) {
+        return 'svg-icon ' + this.className;
+      } else {
+        return 'svg-icon';
+      }
+    },
+  },
+  setup(props) {
+    const symbolId = computed(() => `#${props.prefix}-${props.name}`)
+    return { symbolId }
+  },
+})
+</script>
 
-<!--const iconName = computed(() => {-->
-<!--  return `#icon-${this.iconClass}`-->
-<!--})-->
-
-<!--const svgClass = computed(() => {-->
-<!--  if (this.className) {-->
-<!--    return 'svg-icon ' + this.className-->
-<!--  } else {-->
-<!--    return 'svg-icon'-->
-<!--  }-->
-<!--})-->
-<!--</script>-->
-
-<!--<style scoped>-->
-<!--.svg-icon {-->
-<!--  fill: currentColor;-->
-<!--}-->
-<!--</style>-->
+<style scoped>
+.svg-icon {
+  fill: currentColor;
+}
+</style>
