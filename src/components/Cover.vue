@@ -33,8 +33,8 @@
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const focus = ref(false);
-const router = useRouter();
+const focus = ref(false)
+const router = useRouter()
 
 const props = withDefaults(defineProps<{
   id: number
@@ -79,11 +79,11 @@ const playButtonStyles = computed(() => {
 })
 
 const shadowStyles = computed(() => {
-  const styles: Record<string, string> = {};
-  styles.backgroundImage = `url(${props.imageUrl})`;
-  if (props.type === 'artist') styles.borderRadius = '50%';
-  return styles;
-});
+  const styles: Record<string, string> = {}
+  styles.backgroundImage = `url(${props.imageUrl})`
+  if (props.type === 'artist') styles.borderRadius = '50%'
+  return styles
+})
 
 function play() {
   // const player = store.state.player;
