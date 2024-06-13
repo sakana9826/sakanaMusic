@@ -14,7 +14,7 @@
           :style="playButtonStyles"
           @click.stop="play()"
         >
-          <svg-icon icon-class="play" />
+          <svg-icon name="play" />
         </button>
       </div>
       <img :src="imageUrl" :style="imageStyles" loading="lazy" />
@@ -32,6 +32,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import SvgIcon from '@/components/SvgIcon.vue'
 
 const focus = ref(false)
 const router = useRouter()
