@@ -3,12 +3,14 @@ import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { ref, watch } from 'vue'
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import SvgIcon from '@/components/SvgIcon.vue'
+import ContextMenu from '@/components/ContextMenu.vue'
 
 const route = useRoute()
 const router = useRouter()
 const showNavbar = ref(true)
 const inputFocus = ref(false)
 const keywords = ref('')
+const userProfileMenu = ref<InstanceType<typeof ContextMenu> | null>(null)
 
 watch(() => route.path,
   newPath => {
@@ -31,13 +33,22 @@ function toGitHub() {
   window.open('https://github.com/sakana9826')
 }
 
+function toLogin() {
+  window.open('https://github.com/sakana9826')
+}
+
 function toSettings(this: any) {
   this.$router.push({ name: 'settings' })
 }
 
-function doSearch(){
+function doSearch() {
 
 }
+
+function showUserProfileMenu(e: MouseEvent) {
+  userProfileMenu.value?.openMenu(e)
+}
+
 </script>
 
 <template>
@@ -73,8 +84,34 @@ function doSearch(){
             </div>
           </div>
         </div>
+        <img
+          class="avatar"
+          src='http://s4.music.126.net/style/web2/img/default/default_avatar.jpg?param=60y60'
+          @click="showUserProfileMenu"
+          loading="lazy"
+        />
       </div>
     </nav>
+
+    <ContextMenu ref="userProfileMenu">
+      <div class="item" @click="toSettings">
+        <svg-icon name="settings" />
+        设置
+      </div>
+      <div class="item" @click="toLogin">
+        <svg-icon name="login" />
+        登入
+      </div>
+      <!--      <div v-if="isLooseLoggedIn" class="item" @click="logout">-->
+      <!--        <svg-icon icon-class="logout" />-->
+      <!--        {{ $t('library.userProfileMenu.logout') }}-->
+      <!--      </div>-->
+      <hr />
+      <div class="item" @click="toGitHub">
+        <svg-icon name="github" />
+        github
+      </div>
+    </ContextMenu>
     <!--  <div class="item" @click="toSettings">-->
     <!--    设置-->
     <!--  </div>-->
@@ -167,10 +204,12 @@ nav {
   flex: 1;
   display: flex;
   align-items: center;
+
   .svg-icon {
     height: 24px;
     width: 24px;
   }
+
   button {
     -webkit-app-region: no-drag;
   }
@@ -181,6 +220,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
   .avatar {
     user-select: none;
     height: 30px;
@@ -190,10 +230,12 @@ nav {
     cursor: pointer;
     -webkit-app-region: no-drag;
     -webkit-user-drag: none;
+
     &:hover {
       filter: brightness(80%);
     }
   }
+
   .search-button {
     display: none;
     -webkit-app-region: no-drag;
@@ -233,10 +275,12 @@ nav {
     font-weight: 600;
     margin-top: -1px;
     color: var(--color-text);
+    outline: none;
   }
 
   .active {
     background: var(--color-primary-bg-for-transparent);
+
     input,
     .svg-icon {
       opacity: 1;
