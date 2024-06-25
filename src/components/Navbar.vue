@@ -95,17 +95,23 @@ function showUserProfileMenu(e: MouseEvent) {
 
     <ContextMenu ref="userProfileMenu">
       <div class="item" @click="toSettings">
-        <svg-icon class="inline-block w-5 h-5" name="settings" />
+        <button-icon class="flex-1">
+        <svg-icon class="mr-2 inline-block w-5 h-5" name="settings" />
         设置
+        </button-icon>
       </div>
       <div class="item" @click="toLogin">
-        <svg-icon class="inline-block w-5 h-5" name="login" />
+        <button-icon>
+        <svg-icon class="mr-2 inline-block w-5 h-5" name="login" />
         登入
+        </button-icon>
       </div>
       <hr/>
       <div class="item" @click="toGitHub">
-        <svg-icon class="inline-block w-5 h-5" name="github" />
+        <button-icon>
+        <svg-icon class="mr-2 inline-block w-5 h-5" name="github" />
         github
+        </button-icon>
       </div>
     </ContextMenu>
     <!--  <div class="item" @click="toSettings">-->
