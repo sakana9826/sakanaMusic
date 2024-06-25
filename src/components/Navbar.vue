@@ -95,20 +95,16 @@ function showUserProfileMenu(e: MouseEvent) {
 
     <ContextMenu ref="userProfileMenu">
       <div class="item" @click="toSettings">
-        <svg-icon name="settings" />
+        <svg-icon class="inline-block w-5 h-5" name="settings" />
         设置
       </div>
       <div class="item" @click="toLogin">
-        <svg-icon name="login" />
+        <svg-icon class="inline-block w-5 h-5" name="login" />
         登入
       </div>
-      <!--      <div v-if="isLooseLoggedIn" class="item" @click="logout">-->
-      <!--        <svg-icon icon-class="logout" />-->
-      <!--        {{ $t('library.userProfileMenu.logout') }}-->
-      <!--      </div>-->
-      <hr />
+      <hr/>
       <div class="item" @click="toGitHub">
-        <svg-icon name="github" />
+        <svg-icon class="inline-block w-5 h-5" name="github" />
         github
       </div>
     </ContextMenu>

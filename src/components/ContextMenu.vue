@@ -6,13 +6,13 @@ const top = ref('0px')
 const left = ref('0px')
 
 function closeMenu() {
-  showMenu.value = false;
+  showMenu.value = false
 }
 
-function openMenu(event: MouseEvent) {
-  showMenu.value = true;
-  top.value = `${event.clientY}px`;
-  left.value = `${event.clientX}px`;
+function openMenu(this: any, event: MouseEvent) {
+  showMenu.value = true
+  top.value = `${event.clientY}px`
+  left.value = `${event.clientX}px`
 }
 
 defineExpose({ openMenu })
