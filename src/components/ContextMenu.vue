@@ -11,8 +11,11 @@ function closeMenu() {
 
 function openMenu(this: any, event: MouseEvent) {
   showMenu.value = true
-  top.value = `${event.clientY}px`
-  left.value = `${event.clientX}px`
+  const avatarElement = event.target as HTMLElement;
+  const rect = avatarElement.getBoundingClientRect();
+  top.value = `${rect.bottom+10}px`
+  // left.value = `${rect.right}px` // 右下方
+  left.value = `${rect.left + rect.width / 2}px` // 中正下方
 }
 
 defineExpose({ openMenu })
@@ -25,7 +28,7 @@ defineExpose({ openMenu })
       ref="menu"
       class="menu"
       tabindex="-1"
-      :style="{ top: top, left: left }"
+      :style="{ top: top, left: left, transform: 'translateX(-50%)' }"
       @blur="closeMenu"
       @click="closeMenu"
     >
@@ -78,32 +81,6 @@ defineExpose({ openMenu })
 @supports (-moz-appearance: none) {
   .menu {
     background-color: var(--color-body-bg) !important;
-  }
-}
-
-.menu .item {
-  font-weight: 600;
-  font-size: 14px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: default;
-  color: var(--color-text);
-  display: flex;
-  align-items: center;
-  &:hover {
-    color: var(--color-primary);
-    background: var(--color-primary-bg-for-transparent);
-    transition: opacity 125ms ease-out, transform 125ms ease-out;
-  }
-  &:active {
-    opacity: 0.75;
-    transform: scale(0.95);
-  }
-
-  .svg-icon {
-    height: 16px;
-    width: 16px;
-    margin-right: 5px;
   }
 }
 
