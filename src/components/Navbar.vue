@@ -105,7 +105,7 @@ function showUserProfileMenu(e: MouseEvent) {
       <hr class="mx-2.5 my-1 h-px bg-gray-200 shadow-none rounded-none"/>
       <div class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toGitHub">
         <svg-icon class="mr-1 inline-block w-5 h-5" name="github" />
-        github
+        GitHub
       </div>
     </ContextMenu>
     <!--  <div class="item" @click="toSettings">-->
