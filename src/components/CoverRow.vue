@@ -136,6 +136,7 @@ const getImageUrl = (item: any) => {
 }
 
 .item {
+  margin: auto;
   color: var(--color-text);
 
   .text {

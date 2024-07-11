@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cover size-40"
+    class="cover size-52"
     :class="{ 'cover-hover': coverHover }"
     @mouseover="focus = true"
     @mouseleave="focus = false"
