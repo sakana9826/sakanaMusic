@@ -34,12 +34,12 @@ function toGitHub() {
   window.open('https://github.com/sakana9826')
 }
 
-function toLogin() {
-  window.open('https://github.com/sakana9826')
+function toLogout() {
+  router.push({ name: 'login' })
 }
 
-function toSettings(this: any) {
-  this.$router.push({ name: 'settings' })
+function toSettings() {
+  router.push({ name: 'settings' })
 }
 
 function doSearch() {
@@ -98,9 +98,9 @@ function showUserProfileMenu(e: MouseEvent) {
         <svg-icon class="mr-1 inline-block w-5 h-5" name="settings" />
         设置
       </div>
-      <div class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toLogin">
-        <svg-icon class="mr-1 inline-block w-5 h-5" name="login" />
-        登入
+      <div class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toLogout">
+        <svg-icon class="mr-1 inline-block w-5 h-5" name="logout" />
+        登出
       </div>
       <hr class="mx-2.5 my-1 h-px bg-gray-200 shadow-none rounded-none"/>
       <div class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toGitHub">
