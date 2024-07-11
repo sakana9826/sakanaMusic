@@ -4,7 +4,6 @@ import { ref, watch } from 'vue'
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import SvgIcon from '@/components/SvgIcon.vue'
 import ContextMenu from '@/components/ContextMenu.vue'
-import CoverRow from '@/components/CoverRow.vue'
 
 const route = useRoute()
 const router = useRouter()
