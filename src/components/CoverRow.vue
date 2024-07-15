@@ -132,6 +132,10 @@ const getImageUrl = (item: any) => {
 
 <style lang="scss" scoped>
 .cover-row {
+  padding: {
+    right: 10vw;
+    left: 10vw;
+  }
   display: grid;
 }
 
