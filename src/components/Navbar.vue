@@ -63,8 +63,6 @@ function showUserProfileMenu(e: MouseEvent) {
       </div>
       <div class="navigation-links">
         <RouterLink to="/" :class="{ active: $route.name === 'home' }">Home</RouterLink>
-        <RouterLink to="/developers" :class="{ active: $route.name === 'developers' }">developer</RouterLink>
-        <RouterLink to="/user" :class="{ active: $route.name === 'user' }">user</RouterLink>
       </div>
       <div class="right-part">
         <div class="search-box">
@@ -93,16 +91,22 @@ function showUserProfileMenu(e: MouseEvent) {
     </nav>
 
     <ContextMenu ref="userProfileMenu">
-      <div class="font-semibold text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toSettings">
+      <div
+        class="font-semibold text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]"
+        @click="toSettings">
         <svg-icon class="mr-1 inline-block w-5 h-5" name="settings" />
         设置
       </div>
-      <div class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toLogout">
+      <div
+        class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]"
+        @click="toLogout">
         <svg-icon class="mr-1 inline-block w-5 h-5" name="logout" />
         登出
       </div>
-      <hr class="mx-2.5 my-1 h-px bg-gray-200 shadow-none rounded-none"/>
-      <div class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]" @click="toGitHub">
+      <hr class="mx-2.5 my-1 h-px bg-gray-200 shadow-none rounded-none" />
+      <div
+        class="font-semibold	text-base px-3.5 py-1.5 rounded-lg item w-full block hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-bg-for-transparent)]"
+        @click="toGitHub">
         <svg-icon class="mr-1 inline-block w-5 h-5" name="github" />
         GitHub
       </div>

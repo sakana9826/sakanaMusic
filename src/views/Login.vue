@@ -1,27 +1,12 @@
 <script setup lang="ts">
-import axios from '@/utils/request'
-import qs from 'qs'
 import { ref } from 'vue'
 import router from '@/router'
 
 const client_id = ref('');
 const client_secret = ref('');
 
-function login(event:Event){
-  event.preventDefault()
-
-  axios.post('', qs.stringify({
-    grant_type: 'client_credentials',
-    client_id: client_id.value,
-    client_secret: client_secret.value
-  }))
-    .then(response => {
-      document.cookie = "Token=" + response.data.access_token;
+function login(){
       router.push({ name: 'home' });
-    })
-    .catch(error => {
-      console.error('Error fetching token:', error)
-    })
 }
 
 </script>
