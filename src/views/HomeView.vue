@@ -4,7 +4,7 @@ import CoverRow from '@/components/CoverRow.vue'
 const byAppleMusic = [
   {
     coverImgUrl:
-      '/public/favicon.jpg',
+      '/favicon.jpg',
     name: 'Happy Hits',
     id: 5278068783
   },

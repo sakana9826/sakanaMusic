@@ -14,7 +14,7 @@ function login(){
 <template>
   <div class="bg-white dark:bg-gray-900">
     <div class="flex justify-center h-screen">
-      <div class="hidden lg:block lg:w-2/3 bg-center bg-no-repeat bg-cover" style="background-image: url(../../public/login.png);">
+      <div class="hidden lg:block lg:w-2/3 bg-center bg-no-repeat bg-cover" style="background-image: url(/login.png);">
       <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
           <div>
             <h2 class="text-4xl font-bold text-white"></h2>
