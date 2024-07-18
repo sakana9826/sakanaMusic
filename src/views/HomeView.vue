@@ -54,11 +54,5 @@ const byAppleMusic = [
   font-size: 28px;
   font-weight: 700;
   color: var(--color-text);
-
-  a {
-    font-size: 13px;
-    font-weight: 600;
-    opacity: 0.68;
-  }
 }
 </style>
