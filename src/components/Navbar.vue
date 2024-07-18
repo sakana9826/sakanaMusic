@@ -4,6 +4,7 @@ import { ref, watch } from 'vue'
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import SvgIcon from '@/components/SvgIcon.vue'
 import ContextMenu from '@/components/ContextMenu.vue'
+import DarkMode from '@/components/DarkMode.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -87,6 +88,7 @@ function showUserProfileMenu(e: MouseEvent) {
           @click="showUserProfileMenu"
           loading="lazy"
         />
+        <dark-mode/>
       </div>
     </nav>
 
