@@ -12,6 +12,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue')
+    },
+    {
+      path: '/some',
+      name: 'some',
+      component: () => import('@/components/DarkMode.vue')
     }
   ]
 })

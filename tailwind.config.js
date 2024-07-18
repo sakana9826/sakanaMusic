@@ -3,6 +3,6 @@ module.exports = {
   theme: {
     extend: {}
   },
-  darkMode: ['selector', '[data-mode="dark"]'],
+  darkMode: 'class',
   plugins: []
 }
