@@ -42,9 +42,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.svg-icon {
-  fill: currentColor;
-}
-</style>

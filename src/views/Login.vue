@@ -66,6 +66,3 @@ function login(){
     </div>
   </div>
 </template>
-
-<style>
-</style>
